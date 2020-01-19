@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mylibrary</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<h1>Welcome to the library </h1>
+ <nav>
+<ul class="nav pull-right">
+<%#= link_to "sign up", root_path %>
+<% if signed_in? %>
+
+<li>
+<%= link_to "Sign out", signout_path, method: "delete"
+%>
+</li>
+<% else %>
+<li><%= link_to "Sign in", signin_path %></li>
+<% end %>
+</ul>
+</nav>
+  </head>
+
+  <body>
+  	<p id="notice"><%= notice %></p>
+    <%= yield %>
+  </body>
+</html>
